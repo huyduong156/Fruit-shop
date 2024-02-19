@@ -1,0 +1,1 @@
+<p><b>sản phẩm test mô tả</b></p><p>mô tả này ngắn gọn</p><p><font color="#000000" style="background-color: rgb(255, 255, 0);">mô tả có màu nè con</font></p><p><br></p>
