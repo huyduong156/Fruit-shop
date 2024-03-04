@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\OrderMail;
 use App\Models\admin\products\EvaluateProduct;
+use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Product;
@@ -50,6 +51,7 @@ class CheckoutController extends Controller
             $order->save();
             
             Mail::to($auth->email)->send(new OrderMail($order,$token));
+            Cart::where('customer_id',$auth->id)->delete();
             // $auth->carts()->delete();
             return redirect()->route('home.index')->with('ok','Order checkout successfully. Please check your mail to verify');
         }

@@ -114,10 +114,10 @@
                             @foreach ($order->details as $item)
                             <tr>
                                 <td class="pro-thumbnail"><a
-                                        href="{{route('home.product',$item->product_id)}}"><img class="img-fluid"
+                                        href="{{route('home.product',$item->product->slug)}}"><img class="img-fluid"
                                             src="uploads/product/{{$item->product->image}}" alt="Product" /></a>
                                 </td>
-                                <td class="pro-title"><a href="#">{{$item->product->name}}</a></td>
+                                <td class="pro-title"><a href="{{route('home.product',$item->product->slug)}}">{{$item->product->name}}</a></td>
                                 <td class="pro-price"><span>{{$item->price}}</span></td>
                                 <td class="pro-quantity">
                                     <div class="quantity">

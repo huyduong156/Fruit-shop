@@ -91,9 +91,8 @@
                                                 </div>
                                                 <div class="single-input-item mb-3">
                                                     <select name="gender" class="form-control" id="">
-                                                        <option value="">Select one</option>
-                                                        <option value="1">Male</option>
-                                                        <option value="0">Female</option>
+                                                        <option {{$auth->gender == 1 ? 'selected':''}} value="1">Male</option>
+                                                        <option {{$auth->gender == 0 ? 'selected':''}} value="0">Female</option>
                                                     </select>
                                                     @error('gender')
                                                         <div class="help-block">{{$message}}</div>

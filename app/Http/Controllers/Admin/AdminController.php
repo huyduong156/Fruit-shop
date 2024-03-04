@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\admin\blogs\Post;
+use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\PostComment;
@@ -86,5 +87,10 @@ class AdminController extends Controller
     public function logout(){
         auth()->logout();
         return redirect()->route('admin.login')->with('no','Logouted');
+    }
+    public function user_manage(){
+        $customer_list = Customer::get();
+        $admin_list = User::get();
+        return view('admin.user-manage.index',compact('customer_list','admin_list'));
     }
 }

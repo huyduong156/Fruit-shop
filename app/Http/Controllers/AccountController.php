@@ -240,4 +240,9 @@ class AccountController extends Controller
         }
         // dd($order->details->contains('product_id', $product));
     }
+    public function delete_account(Customer $account_id){
+        $account_id->delete();
+        return redirect()->back()->with('Xóa thành công');
+        // dd($account_id);
+    }
 }

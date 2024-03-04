@@ -233,6 +233,19 @@
               </li>
             </ul>
           </li>
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-store"></i>
+              <div>Đánh giá sản phẩm</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="{{route('admin.evaluate')}}?status=all" class="menu-link">
+                  <div data-i18n="Landing">Tất cả</div>
+                </a>
+              </li>
+            </ul>
+          </li>
           {{-- -------------------Post---------------- --}}
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Post</span>
@@ -304,15 +317,11 @@
             </a>
             <ul class="menu-sub">
               <li class="menu-item">
-                <a href="#" class="menu-link" target="_blank">
-                  <div data-i18n="Landing">infomation</div>
+                <a href="{{route('admin.user_manage')}}" class="menu-link" target="_blank">
+                  <div data-i18n="Landing">Tài khoản người dùng</div>
                 </a>
               </li>
-              <li class="menu-item">
-                <a href="#" class="menu-link" target="_blank">
-                  <div data-i18n="Pricing">Change password</div>
-                </a>
-              </li>
+
             </ul>
           </li>
 
