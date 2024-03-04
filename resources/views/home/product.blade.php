@@ -140,9 +140,9 @@
                             <li class="nav-item">
                                 <a class="nav-link text-uppercase" id="contact-tab" data-bs-toggle="tab" href="#connect-3" role="tab" aria-selected="false">Shipping Policy</a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link text-uppercase" id="review-tab" data-bs-toggle="tab" href="#connect-4" role="tab" aria-selected="false">Size Chart</a>
-                            </li>
+                            </li> --}}
                         </ul>
                         <div class="tab-content mb-text" id="myTabContent">
                             <div class="tab-pane fade show active" id="connect-1" role="tabpanel" aria-labelledby="home-tab">
@@ -241,7 +241,7 @@
                                     <p class="desc-content mb-2">seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="connect-4" role="tabpanel" aria-labelledby="review-tab">
+                            {{-- <div class="tab-pane fade" id="connect-4" role="tabpanel" aria-labelledby="review-tab">
                                 <div class="size-tab table-responsive-lg">
                                     <h4 class="title-3 mb-4">Size Chart</h4>
                                     <table class="table border">
@@ -289,7 +289,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

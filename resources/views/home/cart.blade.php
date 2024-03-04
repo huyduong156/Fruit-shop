@@ -115,7 +115,7 @@
                             </table>
                         </div>
                     </div>
-                    <a href="{{route('cus.order.checkout')}}" class="btn obrien-button primary-btn d-block">Proceed To Checkout</a>
+                    <a href="{{route('cus.order.checkout')}}"  style="{{ empty($carts->toArray()) ? 'pointer-events: none' : ''}}"  class="btn obrien-button primary-btn d-block">Proceed To Checkout</a>
                 </div>
             </div>
         </div>

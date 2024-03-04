@@ -379,7 +379,7 @@
                           </div>
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
-                              <h6 class="mb-0"><a href="{{route('home.post_detail',$latest_post->slug)}}" target="_blank" >Bài viết nhiều bình luận</a></h6>
+                              <h6 class="mb-0"><a href="{{route('home.post_detail',$latest_post->slug)}}" target="_blank" >Bài viết mới nhất</a></h6>
                               <small class="text-muted">{{$latest_post->name}}</small>
                             </div>
                             <div class="user-progress">

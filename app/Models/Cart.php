@@ -13,15 +13,4 @@ class Cart extends Model
     public function products(){
         return $this->hasOne(Product::class, 'id','product_id');
     }
-    // protected $appends = [
-    //     'totalPriceCart'
-    // ];
-    // public function getTotalPriceCartAttributes()
-    // {
-    //     $total_cart = 0;
-    //     foreach($this as $item){
-    //         $total_cart += $item->price * $item->quantity;
-    //     }
-    //     return $total_cart;
-    // }
 }

@@ -1711,8 +1711,8 @@ button,
 
 /*----- Offcanvas start -----*/
 .mobile-navigation {
-  overflow: hidden;
-  max-height: 290px;
+  /* overflow: hidden; */
+  /* max-height: 290px; */
   padding: 30px;
 }
 
@@ -1765,7 +1765,7 @@ button,
 
 .off-canvas-wrapper .off-canvas-inner-content {
   background-color: #fff;
-  width: 300px;
+  width: 370px;
   height: 100%;
   position: relative;
   -webkit-transform: translateX(calc(-100% - 50px));
@@ -1820,13 +1820,16 @@ button,
           flex-direction: column;
   margin-left: auto;
   height: 100%;
+  overflow: scroll;
 }
 
 @media only screen and (max-width: 479.98px) {
   .off-canvas-wrapper .off-canvas-inner-content {
-    width: 260px;
+    width: 86%;
   }
 }
+
+
 
 .offcanvas-curreny-lang-support {
   margin: 40px 0 0 0;

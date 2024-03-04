@@ -53,7 +53,7 @@ Route::group(['prefix'=>'account'],function(){
     Route::get('/login',[AccountController::class,'login'])->name('account.login');
     Route::get('/logout',[AccountController::class,'logout'])->name('account.logout');
     Route::post('/login',[AccountController::class,'check_login'])->name('account.check_login');
-    Route::get('/favorite',[AccountController::class,'favorite'])->name('account.favorite');
+    Route::get('/favorite',[AccountController::class,'favorite'])->name('account.favorite')->middleware('customer');
 
 
     Route::get('/register',[AccountController::class,'register'])->name('account.register');
@@ -72,9 +72,9 @@ Route::group(['prefix'=>'account'],function(){
     Route::get('/reset-password/{token}',[AccountController::class,'reset_password'])->name('account.reset_password');
     Route::post('/reset-password/{token}',[AccountController::class,'check_reset_password'])->name('account.check_reset_password');
     
-    Route::post('/rate-order',[AccountController::class,'post_rate'])->name('account.product.rate_order');
-    Route::get('/compare_product/{product}',[HomeController::class,'compare_product'])->name('home.compare_product');
-    Route::get('/compare',[AccountController::class,'compare_list'])->name('account.compare_list');
+    Route::post('/rate-order',[AccountController::class,'post_rate'])->name('account.product.rate_order')->middleware('customer');
+    Route::get('/compare_product/{product}',[HomeController::class,'compare_product'])->name('home.compare_product')->middleware('customer');
+    Route::get('/compare',[AccountController::class,'compare_list'])->name('account.compare_list')->middleware('customer');
 });
 
 Route::group(['prefix'=>'ajax'],function(){
@@ -103,7 +103,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/order',[OrderController::class,'order'])->name('admin.order');
     Route::get('/order/detail/{order}',[OrderController::class,'order_detail'])->name('admin.order_detail');
     Route::get('/order/update-status/{order}',[OrderController::class,'update_status'])->name('admin.order.update_status');
-
+    
     Route::resource('tag-product', TagProductController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
@@ -112,7 +112,11 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('tag-post', PostTagController::class);
     // Route::resource('product', ProductController::class);
     Route::get('product-delete-image/{image}', [ProductController::class,'destroyImage'])->name('product.destroyImage');
-
+    
+    Route::get('/evaluate',[OrderController::class,'evaluate'])->name('admin.evaluate');
+    Route::get('/evaluate-list/{slug}',[OrderController::class,'evaluate_list'])->name('admin.evaluate_list');
+    Route::get('/user-manage',[AdminController::class,'user_manage'])->name('admin.user_manage');
+    Route::get('/delete-account/{account_id}',[AccountController::class,'delete_account'])->name('admin.delete_account');
 
     Route::group(['prefix'=>'display'],function(){
         Route::get('/home',[DisplayController::class,'get_display_home'])->name('display_setting_home');

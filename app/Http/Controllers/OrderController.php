@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Mail\OrderMail;
+use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
@@ -43,6 +47,7 @@ class OrderController extends Controller
         $status = (int)$status;
         // dd($order->status);
 
+
         if($order->status !=4){
             if($order->status == 3 && $status == 5){
                 return redirect()->route('admin.order_detail',$order->id)->with('no','không thể cập nhập đơn hàng đã giao');
@@ -51,6 +56,19 @@ class OrderController extends Controller
             return redirect()->route('admin.order_detail',$order->id)->with('ok','Cập nhập trạng thái thành công');
         }
         return redirect()->route('admin.order_detail',$order->id)->with('no','không thể cập nhập đơn hàng đã giao');
+    }
+    public function evaluate(){
+        $list_evaluate = OrderDetail::join('products', 'order_details.product_id', '=', 'products.id')
+        ->select('products.name', DB::raw('COUNT(order_details.rate) as review_count'), 'products.slug')
+        ->whereNotNull('order_details.rate')
+        ->groupBy('products.id', 'products.name', 'products.slug')
+        ->get();
+        return view('admin.orders.evaluate',compact('list_evaluate'));
+    }
+    public function evaluate_list($slug){
+        $product = Product::where('slug',$slug)->first();
+        $list_evaluate = OrderDetail::where('product_id',$product->id)->whereNotNull('rate')->get();
+        return view('admin.orders.evaluate-list',compact('product','list_evaluate'));
     }
 
 
